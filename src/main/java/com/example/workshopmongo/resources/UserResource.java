@@ -68,6 +68,17 @@ public class UserResource {
 		service.delete(id);
 		return ResponseEntity.noContent().build(); // Retorna código 204
 	}
+	
+	@RequestMapping(value="/{id}",method = RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody UserDTO objDto, @PathVariable String id) {
+
+		User obj = service.fromDTO(objDto);
+		obj.setId(id); //Para garantir que o id é o que veio na requisição
+		obj = service.update(obj);
+		
+		return ResponseEntity.noContent().build(); // Retorna código 204
+	}
+
 
 
 
