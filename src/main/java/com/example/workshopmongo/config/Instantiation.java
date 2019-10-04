@@ -48,6 +48,10 @@ public class Instantiation implements CommandLineRunner {
 		//userRepository.saveAll(Arrays.asList(maria, alex, bob)); -> primeiro precisa gravar para depois criar o Post (pois precisa do ID)
 		postRepository.saveAll(Arrays.asList(post1, post2));
 		
+		//Refatorar a carga inicial do Banco, incluindo as associações dos posts
+		maria.getPosts().addAll(Arrays.asList(post1, post2));
+		userRepository.save(maria);
+		
 	}
 
 }
