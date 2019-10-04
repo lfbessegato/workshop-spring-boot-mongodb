@@ -4,32 +4,27 @@ import java.io.Serializable;
 
 import com.example.workshopmongo.domain.User;
 
-public class UserDTO implements Serializable{
+public class AuthorDTO implements Serializable{
 	
 	/**
-	 * Serial -> para permitir tráfego de rede e gravar em arquivo 
-	 * Não precisa implementar no HashCode no DTO
+	 * Serial -> para permitir tráfego de rede e gravar em arquivo
+	 * Não precisa implementar o HashCode no DTO
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	//Atributos
+	//Atributos Básicos
 	private String id;
 	private String name;
-	private String email;
 	
 	//Construtores
-	public UserDTO() {
+	public AuthorDTO() {
 	}
 	
-	//Construtor para instanciar a partir do Objeto Entity
-	public UserDTO(User obj) {
+	public AuthorDTO(User obj) {
 		//Copiar as informações
 		id = obj.getId();
 		name = obj.getName();
-		email = obj.getEmail();
 	}
 
-	
 	//Getters and Setters
 	public String getId() {
 		return id;
@@ -45,14 +40,6 @@ public class UserDTO implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	
 	
