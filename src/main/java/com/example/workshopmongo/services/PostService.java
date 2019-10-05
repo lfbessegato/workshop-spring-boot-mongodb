@@ -24,6 +24,7 @@ public class PostService {
 	
 	//Montagem do método para Encontrar o título
 	public List<Post> findByTitle(String text){
-		return repo.findByTitleContainingIgnoreCase(text);
+		//return repo.findByTitleContainingIgnoreCase(text);
+		return repo.searchTitle(text);
 	}
 }
